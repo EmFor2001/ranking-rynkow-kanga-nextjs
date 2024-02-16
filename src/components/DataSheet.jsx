@@ -9,24 +9,41 @@ import { theme, textFieldTheme } from "../helpers/themes";
 const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  padding-inline: 20px;
+  
+  @media (min-width: 610px) {
+    align-items: center;
+    padding-bottom: 20px;
+  }
 `;
 
 const PageTitle = styled.h1`
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
   color: ${theme.palette.primary};
+
+  @media (min-width: 610px) {
+    text-align: center;
+  }
 `;
 
 const StyledTextField = styled(TextField)`
   margin-bottom: 20px;
-  width: 300px;
+  width: 200px;
+
+  @media (min-width: 610px) {
+    width: 610px;
+  }
 `;
 
 const StyledDatagrid = styled(DataGrid)`
   border: 1px solid #e65321;
+`;
+
+const DatagridWrapper = styled.div`
+  height: 80vh;
+  width: 610px;
+  overflow-x: auto;
 `;
 
 const DataSheet = ({ pairs, summary }) => {
@@ -83,7 +100,7 @@ const DataSheet = ({ pairs, summary }) => {
     {
       field: "rag",
       headerName: "RAG",
-      width: 70,
+      width: 80,
       renderCell: (params) => (
         <div
           style={{
@@ -140,19 +157,23 @@ const DataSheet = ({ pairs, summary }) => {
             color="primary"
           />
         </ThemeProvider>
-        <StyledDatagrid
-          rows={rows}
-          columns={columns}
-          onRowDoubleClick={handleRowClick}
-          filterModel={filterModel}
-          // sx={{ border: "1px solid #E65321" }}
-          initialState={{
-            pagination: { paginationModel: { pageSize: 25, page: 0 } },
-          }}
-          getRowClassName={(params) =>
-            params.indexRelativeToCurrentPage % 2 === 0 ? "Mui-even" : "Mui-odd"
-          }
-        />
+        <DatagridWrapper>
+          <StyledDatagrid
+            rows={rows}
+            columns={columns}
+            onRowDoubleClick={handleRowClick}
+            filterModel={filterModel}
+            // sx={{ border: "1px solid #E65321" }}
+            initialState={{
+              pagination: { paginationModel: { pageSize: 25, page: 0 } },
+            }}
+            getRowClassName={(params) =>
+              params.indexRelativeToCurrentPage % 2 === 0
+                ? "Mui-even"
+                : "Mui-odd"
+            }
+          />
+        </DatagridWrapper>
         <DepthDialog
           open={open}
           handleClose={handleClose}
