@@ -1,6 +1,6 @@
 "use client";
 import { DataGrid } from "@mui/x-data-grid";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DepthDialog from "./DepthDialog";
 import { TextField, ThemeProvider } from "@mui/material";
 import styled from "styled-components";
@@ -42,13 +42,9 @@ const DataSheet = ({ pairs, summary }) => {
     setOpen(false);
   };
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
   const handleRowClick = (params) => {
     setModalData(params.row);
-    handleOpen();
+    setOpen(true);
   };
 
   const countSpread = (bid, ask) => {
