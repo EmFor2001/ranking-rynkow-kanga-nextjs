@@ -63,10 +63,12 @@ const DataSheet = ({ pairs, summary }) => {
       field: "highestBid",
       headerName: "Highest Bid",
       width: 110,
+      sortable: false,
     },
     {
       field: "lowestAsk",
       width: 110,
+      sortable: false,
     },
     {
       field: "spread",
