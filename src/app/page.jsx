@@ -1,5 +1,4 @@
 import DataSheet from "@/components/DataSheet";
-import styles from "./page.module.css";
 
 export default async function Home() {
   const pairs = await fetch(
@@ -10,10 +9,9 @@ export default async function Home() {
     "https://public.kanga.exchange/api/market/summary"
   ).then((res) => res.json());
 
-
   return (
-    <main className={styles.main}>
+    <main>
       <DataSheet pairs={pairs} summary={summary.summary} />
     </main>
-  )
+  );
 }

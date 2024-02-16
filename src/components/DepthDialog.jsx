@@ -1,7 +1,5 @@
 "use client";
-
 import { Dialog, DialogContent, DialogTitle } from "@mui/material";
-
 import { useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 
