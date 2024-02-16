@@ -27,10 +27,6 @@ const StyledTextField = styled(TextField)`
 
 const StyledDatagrid = styled(DataGrid)`
   border: 1px solid #e65321;
-
-  // &.MuiEven {
-  //   background-color: #f5baa6;
-  // }
 `;
 
 const DataSheet = ({ pairs, summary }) => {

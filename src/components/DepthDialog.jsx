@@ -27,7 +27,6 @@ const StyledDialogContent = styled(DialogContent)`
 `;
 
 const DepthDialog = ({ open, handleClose, modalData }) => {
-  // console.log("modalData", modalData.name);
   const [depth, setDepth] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -51,7 +50,6 @@ const DepthDialog = ({ open, handleClose, modalData }) => {
     bidsMaxPrice,
     bidsMinPrice,
   } = useMemo(() => {
-    console.log("depth", depth);
     if (
       depth?.asks &&
       depth.asks.length > 0 &&
@@ -96,8 +94,6 @@ const DepthDialog = ({ open, handleClose, modalData }) => {
       };
     }
   }, [depth, isLoading]);
-
-  console.log("asksDepth", asksDepth);
 
   return (
     <DialogWrapper>
