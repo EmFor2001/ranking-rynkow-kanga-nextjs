@@ -22,6 +22,8 @@ const StyledDialogContent = styled(DialogContent)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: 15px;
+  padding: 20px;
 `;
 
 const DepthDialog = ({ open, handleClose, modalData }) => {
